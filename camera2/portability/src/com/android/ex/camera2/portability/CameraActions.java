@@ -16,7 +16,7 @@
 
 package com.android.ex.camera2.portability;
 
-class CameraActions {
+class CameraActions extends SprdCameraActions {
     // Camera initialization/finalization
     public static final int OPEN_CAMERA = 1;
     public static final int RELEASE =     2;
@@ -53,6 +53,8 @@ class CameraActions {
     public static final int SET_JPEG_ORIENTATION = 503;
     // Capture
     public static final int CAPTURE_PHOTO = 601;
+    // Light portrait
+    public static final int SET_LIGHT_PORTRAIT_CALLBACK = 510;
 
     public static String stringify(int action) {
         switch (action) {
@@ -113,7 +115,14 @@ class CameraActions {
             case CAPTURE_PHOTO:
                 return "CAPTURE_PHOTO";
             default:
+                /*
+                 * SPRD @{
+                 * Original Code
+                 *
                 return "UNKNOWN(" + action + ")";
+                 */
+                return stringifySprd(action);
+                /* @} */
         }
     }
 
